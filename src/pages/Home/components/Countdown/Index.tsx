@@ -24,6 +24,7 @@ export function Countdown() {
         );
 
         if (secondsDifference >= totalSeconds) {
+          console.log('chegou 1');
           markCurrentCycleAsFinished();
 
           setSecondsPassed(totalSeconds);

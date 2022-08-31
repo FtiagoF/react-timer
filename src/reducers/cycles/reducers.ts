@@ -41,14 +41,11 @@ export function cyclesReducer(state: CyclesState, action: any) {
     }
 
     case ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED: {
+      console.log('chegou');
+      
       const currentCycleIndex = state.cycles.findIndex((cycle) => {
         return cycle.id === state.activeCycleId;
       });
-
-      if (currentCycleIndex < 0) {
-        return state;
-      }
-
       return produce(state, (draft) => {
         draft.activeCycleId = null;
         draft.cycles[currentCycleIndex].finishedDate = new Date();
@@ -56,6 +53,8 @@ export function cyclesReducer(state: CyclesState, action: any) {
     }
 
     default:
+      console.log(action.type);
+      
       return state;
   }
 }
